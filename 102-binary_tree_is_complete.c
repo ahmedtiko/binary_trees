@@ -1,5 +1,7 @@
 #include "binary_trees.h"
 
+int binary_tree_last_level_filled(const binary_tree_t *tree, size_t height, size_t level);
+
 /**
  * binary_tree_height - Measures the height of a binary tree
  * @tree: Pointer to the root node of the tree to measure the height
@@ -49,10 +51,10 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	height = binary_tree_height(tree);
 	size = binary_tree_size(tree);
 
-	if (size == (1 << height) - 1)
+	if (size == (1U << height) - 1)
 		return (1);
 
-	if (size < (1 << height) - 1)
+	if (size < (1U << height) - 1)
 		return (0);
 
 	return (binary_tree_last_level_filled(tree, height, 0));
